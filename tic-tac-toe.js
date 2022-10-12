@@ -5,7 +5,17 @@ window.onload = function(){
 
     square.forEach(function(sq,index){
         sq.classList.add("square");
-        
+
+        sq.addEventListener('mouseover', function(e)
+        {
+            e.target.classList.add('hover');
+        }); 
+
+        sq.addEventListener('mouseout', function(e)
+        {
+            e.target.classList.remove('hover');
+        }); 
+
         sq.addEventListener('click',function(e){
             if(state.length==0)
             {
