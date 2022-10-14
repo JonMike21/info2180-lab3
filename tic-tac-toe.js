@@ -25,7 +25,7 @@ window.onload = function(){
 
         sq.addEventListener('click',function(e){
             
-            //if (sq.innerHTML==""){  //Exercise 6 
+            if (sq.innerHTML==""){  
                 if(state.length==0)
                 {
                     sq.innerHTML= "X";
@@ -49,7 +49,7 @@ window.onload = function(){
                     state.push("O");
                     restar=true;
                 }   
-            //}
+            }
 
             winn.forEach((i) => {
                 if ((square[i[0]].innerHTML=="X") && (square[i[1]].innerHTML=="X") && (square[i[2]].innerHTML=="X"))
@@ -67,10 +67,8 @@ window.onload = function(){
                 } 
         
                 }); 
-
         });
 
-        
     }); 
 
     butn.addEventListener('click', e => {
