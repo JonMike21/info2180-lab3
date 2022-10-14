@@ -1,8 +1,10 @@
 window.onload = function(){
     let square = document.querySelectorAll("#board > div");
     let stat = document.getElementById("status");
+    const butn = document.querySelector(".btn");
     const state =[];
     const winn=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    let restar=false;
 
 
     square.forEach(function(sq,index){
@@ -29,7 +31,7 @@ window.onload = function(){
                     sq.innerHTML= "X";
                     e.target.classList.add('X');
                     state.push("X");
-                    //console.log(square[0].innerHTML);
+                    restar=true;
                 }
                 
                 else if(state[state.length-1]=='O')
@@ -37,6 +39,7 @@ window.onload = function(){
                     sq.innerHTML= "X";
                     e.target.classList.add('X');
                     state.push("X");
+                    restar=true;
                 }
 
                 else
@@ -44,6 +47,7 @@ window.onload = function(){
                     sq.innerHTML= "O";
                     e.target.classList.add('O');
                     state.push("O");
+                    restar=true;
                 }   
             //}
 
@@ -52,32 +56,31 @@ window.onload = function(){
                 {
                     stat.classList.add('you-won');
                     stat.innerHTML="Congratulations! X is the Winner!";
+                    restar=true;
                 }
         
                 else if ((square[i[0]].innerHTML=="O") && (square[i[1]].innerHTML=="O") && (square[i[2]].innerHTML=="O"))
                 {
                     stat.classList.add('you-won');
                     stat.innerHTML="Congratulations! O is the Winner!";
+                    restar=true;
                 } 
         
-                }); //edf
+                }); 
 
         });
 
         
     }); 
-    
-    
-    
 
-        /*
-        if ((square[0].innerHTML=="X"))
-                {
-                    //stat.classList.add('you-won');
-                    //stat.innerHTML="Congratulations! X is the Winner!";
-                    console.log(square[0].innerHTML);
-                    console.log("Lmaoo");
-                }
-        */
+    butn.addEventListener('click', e => {
+        if(restar==true)
+        {
+            console.log('button clicked!');
+            location.reload();
+            restar=false;
+         }
 
+      });
+        
 }
